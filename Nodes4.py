@@ -30,7 +30,7 @@ start_time = time.time()
 #             break
 
 min_loss = mean_squared_error(plaintext)
-i = 3
+i = 4  # the number of nodes
 
 while 1:
     print(f"Iteration: {iteration}")

@@ -30,7 +30,7 @@ start_time = time.time()
 #             break
 
 min_loss = mean_squared_error(plaintext)
-i = 3
+i = 7
 
 while 1:
     print(f"Iteration: {iteration}")
