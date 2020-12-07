@@ -14,36 +14,27 @@ plaintext = np.array([ 97, 98, 97, 110, 100, 111, 110, 101, 100, 10, 81, 99, 72,
 
 start_time = time.time()
 
-# while 1:
-#     print(f"Iteration: {iteration}")
-#     for i in range(2, len(plaintext) + 1):
-#         W1 = np.random.random_sample((len(input), i))
-#         guess = input.dot(W1)
-#         loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
-#         if loss < 0.5:
-#             break
-#         else:
-#             print(loss)
-#             iteration += 1
-#         used_time = time.time() - start_time
-#         if used_time > 3600 * 3:
-#             break
+# for i in range(2, len(plaintext) + 1):
+#     W1 = (3 + 3) * np.random.random_sample((len(input), i)) - 3
+#     guess = input.dot(W1)
+#     loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
+# print(np.sum(guess == plaintext))
 
-min_loss = mean_squared_error(plaintext)
-i = 12
+min_loss = len(plaintext)
+i = 12  # the number of nodes
 
 while 1:
     print(f"Iteration: {iteration}")
-    W1 = np.random.random_sample((len(input), i))
+    W1 = (4 + 4) * np.random.random_sample((len(input), i)) - 4
     guess = input.dot(W1)
-    loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
-    min_loss = min(min_loss, loss)
-    if min_loss < 0.5:
+    # loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
+    error = min(min_loss, ( len(plaintext) - np.count_nonzero(guess == plaintext[:i]) ) )
+    if error < 1:
         break
     else:
-        print(f"loss is {loss}， minimum loss is {min_loss}")
+        print(f"Minimum error is {error}")
         iteration += 1
     used_time = time.time() - start_time
-    if used_time > 3600:
+    if used_time > 3600 * 8:
         break
 print(f"used_time is: {used_time}")

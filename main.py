@@ -18,20 +18,21 @@ start_time = time.time()
 #     W1 = (3 + 3) * np.random.random_sample((len(input), i)) - 3
 #     guess = input.dot(W1)
 #     loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
+# print(np.sum(guess == plaintext))
 
-min_loss = mean_squared_error(plaintext)
-i = 2  # the number of nodes
+min_loss = len(plaintext)
+i = 14  # the number of nodes
 
 while 1:
     print(f"Iteration: {iteration}")
-    W1 = (3 + 3) * np.random.random_sample((len(input), i)) - 3
+    W1 = (4 + 4) * np.random.random_sample((len(input), i)) - 4
     guess = input.dot(W1)
-    loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
-    min_loss = min(min_loss, loss)
-    if min_loss < 0.5:
+    # loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
+    error = min(min_loss, ( len(plaintext) - np.count_nonzero(guess == plaintext[:i]) ) )
+    if error < 1:
         break
     else:
-        print(f"loss is {loss}， minimum loss is {min_loss}")
+        print(f"Minimum error is {error}")
         iteration += 1
     used_time = time.time() - start_time
     if used_time > 3600 * 8:
