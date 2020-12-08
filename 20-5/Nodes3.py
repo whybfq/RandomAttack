@@ -8,42 +8,36 @@ def mean_squared_error(a, b=0):
 
 
 iteration = 1
-input = np.array([ -314.42844, 70.05509 ])
+input = np.array([ -98.36499, -45.615704, 35.624004, -91.82865, -158.26599, -147.02539,
+                   36.7076, 20.750473, 14.900537, -171.53038, -66.60556, -99.393616,
+                   -25.43512, -66.25455, 77.57463, -212.91815, -53.07083, 137.94112,
+                   -103.54969, -214.36864 ])
 
-plaintext = np.array([ 97, 98, 97, 110, 100, 111, 110, 101, 100, 10, 81, 99, 72, 60 ])
+plaintext = np.array([  97, 98, 101, 10, 27 ])
 
 start_time = time.time()
 
-# while 1:
-#     print(f"Iteration: {iteration}")
-#     for i in range(2, len(plaintext) + 1):
-#         W1 = np.random.random_sample((len(input), i))
-#         guess = input.dot(W1)
-#         loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
-#         if loss < 0.5:
-#             break
-#         else:
-#             print(loss)
-#             iteration += 1
-#         used_time = time.time() - start_time
-#         if used_time > 3600 * 3:
-#             break
+# for i in range(2, len(plaintext) + 1):
+#     W1 = (3 + 3) * np.random.random_sample((len(input), i)) - 3
+#     guess = input.dot(W1)
+#     loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
+# print(np.sum(guess == plaintext))
 
-min_loss = mean_squared_error(plaintext)
+min_loss = len(plaintext)
 i = 3  # the number of nodes
 
 while 1:
     print(f"Iteration: {iteration}")
-    W1 = np.random.random_sample((len(input), i))
+    W1 = (4 + 4) * np.random.random_sample((len(input), i)) - 4
     guess = input.dot(W1)
-    loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
-    min_loss = min(min_loss, loss)
-    if min_loss < 0.5:
+    # loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
+    error = min(min_loss, ( len(plaintext) - len(np.intersect1d(guess, plaintext)) ) )
+    if error < 1:
         break
     else:
-        print(f"loss is {loss}， minimum loss is {min_loss}")
+        print(f"Minimum error is {error}")
         iteration += 1
     used_time = time.time() - start_time
-    if used_time > 3600:
+    if used_time > 3600 * 8:
         break
 print(f"used_time is: {used_time}")

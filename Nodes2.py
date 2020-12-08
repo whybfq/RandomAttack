@@ -28,7 +28,7 @@ while 1:
     W1 = (4 + 4) * np.random.random_sample((len(input), i)) - 4
     guess = input.dot(W1)
     # loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
-    error = min(min_loss, ( len(plaintext) - np.sum(guess == plaintext[:i]) ) )
+    error = min(min_loss, ( len(plaintext) - len(np.intersect1d(guess, plaintext)) ) )
     if error < 1:
         break
     else:
