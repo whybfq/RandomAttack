@@ -20,21 +20,23 @@ start_time = time.time()
 #     loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
 # print(np.sum(guess == plaintext))
 
-min_loss = len(plaintext)
-i = 14  # the number of nodes
+# min_loss = len(plaintext)
+# i = 14  # the number of nodes
+#
+# while 1:
+#     print(f"Iteration: {iteration}")
+#     W1 = (4 + 4) * np.random.random_sample((len(input), i)) - 4
+#     guess = input.dot(W1)
+#     # loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
+#     error = min(min_loss, ( len(plaintext) - len(np.intersect1d(guess, plaintext)) ) )
+#     if error < 1:
+#         break
+#     else:
+#         print(f"Minimum error is {error}")
+#         iteration += 1
+#     used_time = time.time() - start_time
+#     if used_time > 3600 * 8:
+#         break
+# print(f"used_time is: {used_time}")
 
-while 1:
-    print(f"Iteration: {iteration}")
-    W1 = (4 + 4) * np.random.random_sample((len(input), i)) - 4
-    guess = input.dot(W1)
-    # loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
-    error = min(min_loss, ( len(plaintext) - len(np.intersect1d(guess, plaintext)) ) )
-    if error < 1:
-        break
-    else:
-        print(f"Minimum error is {error}")
-        iteration += 1
-    used_time = time.time() - start_time
-    if used_time > 3600 * 8:
-        break
-print(f"used_time is: {used_time}")
+print(np.linalg.inv([input]))
