@@ -11,6 +11,10 @@ iteration = 1
 input = np.array([ -314.42844, 70.05509 ])
 
 plaintext = np.array([ 97, 98, 97, 110, 100, 111, 110, 101, 100, 10, 81, 99, 72, 60 ])
+# out = []
+# for i in plaintext:
+#     out.append(chr(i))
+# print(out)
 
 start_time = time.time()
 
