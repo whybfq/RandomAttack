@@ -63,5 +63,8 @@ plt.plot(Nodes, Iterations)
 # for a, b in zip(Nodes, Iterations):
 #     plt.text(a, b + 0.05, '%.0f' % b, ha='center', va='bottom', fontsize=7)
 # plt.bar(Nodes, Iterations, width=0.15, align='center', color='c', alpha=0.8)
+line, = axes.plot(X, Y * 0.9, color='blue', linewidth=2, linestyle="-")
+line.set_dashes((40, 5, 5, 5, 5, 5, 40, 5))
+
 plt.show()
 
