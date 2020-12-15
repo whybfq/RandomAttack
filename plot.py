@@ -73,24 +73,39 @@ Iterations = [ 482277173
 # plt
 
 
-[ 'loss', 'hidden neurons', 'learning_rate' ]
+pictures = [ 'Error versus nodes', 'Crack time (Decryption Time: 1.232 seconds)',
+             'Iterations versus nodes' ]
 fig = plt.figure(num=None, figsize=(26, 12), dpi=80, facecolor='w', edgecolor='k')
 
 fig, ax_lst = plt.subplots(1, 3, figsize=(18, 5))
-# for i, str_ in enumerate([ 'loss', 'hidden neurons change', 'learning_rate' ]):
-#     ax_lst[ i ].title.set_text(str_)
+for i, str_ in enumerate(pictures):
+    ax_lst[ i ].title.set_text(str_)
 
-ax_lst[ 0 ].plot(iteration, loss_log)
-ax_lst[ 0 ].set_xlabel('epoches')
-ax_lst[ 0 ].set_ylabel('mean squared error')
+ax_lst[ 0 ].plot(Nodes, Loss)
+ax_lst[ 0 ].set_xlabel('nodes')
+ax_lst[ 0 ].set_ylabel('Error')
+# ax_lst[ 0 ].title('Error versus nodes')
+# plt.ylim(0, 16)
+for a, b in zip(Nodes, Loss):
+    ax_lst[ 0 ].text(a, b + 0.05, '%.0f' % b, ha='center', va='bottom', fontsize=7)
+ax_lst[ 0 ].bar(Nodes, Loss, width=0.35, align='edge', color='c', alpha=0.8)
 
 
-ax_lst[ 1 ].plot(input_len_list, hidden_num_list)
-ax_lst[ 1 ].set_xlabel('number of input neurons (including secret dimensions)')
-ax_lst[ 1 ].set_ylabel('min number of hidden neurons')
+ax_lst[ 1 ].plot(Nodes, Times)
+ax_lst[ 1 ].set_xlabel('Nodes')
+ax_lst[ 1 ].set_ylabel('Time (seconds)')
+for a, b in zip(Nodes, Times):
+    ax_lst[ 1 ].text(a, b + 0.05, '%.0f' % b, ha='center', va='bottom', fontsize=7)
+ax_lst[ 1 ].bar(Nodes, Times, width=0.35, align='edge', color='c', alpha=0.8)
+ax_lst[ 1 ].plot(Nodes, [ 1.232 ] * len(Nodes), 'r', c='g', linewidth=4)
+# plt.ylim(1.232, 30000)
 
-ax_lst[ 2 ].plot(input_len_list, learning_rate_list)
-ax_lst[ 2 ].set_xlabel('input dimensions (including secret dimensions)')
-ax_lst[ 2 ].set_ylabel('learning rate')
+ax_lst[ 2 ].plot(Nodes, Iterations)
+ax_lst[ 2 ].set_xlabel('Nodes')
+ax_lst[ 2 ].set_ylabel('Iterations')
 
+# for a, b in zip(Nodes, Iterations):
+#     ax_lst[ 2 ].text(a, b + 0.5, '%.1f' % b, ha='right', va='bottom', fontsize=7)
+# ax_lst[ 2 ].bar(Nodes, Iterations, width=0.15, align='center', color='c', alpha=0.8)
+ax_lst[ 2 ].plot(Nodes, Iterations)
 plt.show()
