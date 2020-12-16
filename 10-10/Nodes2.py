@@ -8,12 +8,10 @@ def mean_squared_error(a, b=0):
 
 
 iteration = 1
-input = np.array([ -98.36499, -45.615704, 35.624004, -91.82865, -158.26599, -147.02539,
-                   36.7076, 20.750473, 14.900537, -171.53038, -66.60556, -99.393616,
-                   -25.43512, -66.25455, 77.57463, -212.91815, -53.07083, 137.94112,
-                   -103.54969, -214.36864 ])
+input = np.array([ 392.24274, 287.17422, -304.2557, 408.5121, 149.03389, 306.06216,
+                   438.894, 320.20078, 81.52688, -189.753 ])
 
-plaintext = np.array([  97, 98, 101, 10, 27 ])
+plaintext = np.array([ 84, 104, 97, 110, 107, 32, 121, 111, 117, 33 ])
 
 start_time = time.time()
 
@@ -31,7 +29,7 @@ while 1:
     W1 = (4 + 4) * np.random.random_sample((len(input), i)) - 4
     guess = input.dot(W1)
     # loss = mean_squared_error(guess, plaintext[ :i ]) + mean_squared_error(plaintext[ i: ])
-    error = min(min_loss, ( len(plaintext) - len(np.intersect1d(guess, plaintext)) ) )
+    error = min(min_loss, (len(plaintext) - len(np.intersect1d(guess, plaintext))))
     if error < 1:
         break
     else:

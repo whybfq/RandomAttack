@@ -3,38 +3,20 @@ import numpy as np
 from numpy import random
 import matplotlib.pyplot as plt
 
-Nodes = np.arange(2, 15)  # 13 nodes
+Nodes = np.arange(2, 6)  # 13 nodes
 # print(Nodes)
 
-Times = np.array([ 28800.00003
-                     , 28800
-                     , 28800.00002
-                     , 28800
-                     , 28800.00002
+Times = np.array([ 28800.00258
                      , 28800.00004
-                     , 28800.00823
-                     , 28800.00003
-                     , 28800.00001
-                     , 28800
-                     , 28800
-                     , 28800.00004
+                     , 28800.00006
                      , 28800.00002 ])
 
-Loss = np.array([ 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14 ])
+Loss = np.array([ 5, 5, 5, 5 ])
 
-Iterations = [ 482277173
-    , 477629785
-    , 433702694
-    , 424399900
-    , 425888105
-    , 428059217
-    , 1031846801
-    , 1037774429
-    , 1024399360
-    , 1033585786
-    , 1043560696
-    , 1042331850
-    , 1017113489 ]
+Iterations = [ 297726029
+    , 298343583
+    , 297264181
+    , 298193927 ]
 
 # plt.xlabel('Nodes')
 # plt.ylabel('Error')
@@ -69,7 +51,6 @@ Iterations = [ 482277173
 # plt.show()
 
 
-
 # plt
 
 
@@ -89,7 +70,6 @@ ax_lst[ 0 ].set_ylabel('Error')
 for a, b in zip(Nodes, Loss):
     ax_lst[ 0 ].text(a, b + 0.05, '%.0f' % b, ha='center', va='bottom', fontsize=7)
 ax_lst[ 0 ].bar(Nodes, Loss, width=0.35, align='edge', color='c', alpha=0.8)
-
 
 ax_lst[ 1 ].plot(Nodes, Times)
 ax_lst[ 1 ].set_xlabel('Nodes')

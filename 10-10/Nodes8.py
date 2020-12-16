@@ -22,7 +22,7 @@ start_time = time.time()
 # print(np.sum(guess == plaintext))
 
 min_loss = len(plaintext)
-i = 4  # the number of nodes
+i = 8  # the number of nodes
 
 while 1:
     print(f"Iteration: {iteration}")
