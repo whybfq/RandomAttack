@@ -88,7 +88,7 @@ ax_lst[ 0 ].set_ylabel('Error')
 # plt.ylim(0, 16)
 for a, b in zip(Nodes, Loss):
     ax_lst[ 0 ].text(a, b + 0.05, '%.0f' % b, ha='center', va='bottom', fontsize=7)
-ax_lst[ 0 ].bar(Nodes, Loss, width=0.35, align='edge', color='c', alpha=0.8)
+ax_lst[ 0 ].bar(Nodes, Loss, width=0.35, align='center', color='c', alpha=0.8)
 
 
 ax_lst[ 1 ].plot(Nodes, Times)
@@ -96,7 +96,7 @@ ax_lst[ 1 ].set_xlabel('Nodes')
 ax_lst[ 1 ].set_ylabel('Time (seconds)')
 for a, b in zip(Nodes, Times):
     ax_lst[ 1 ].text(a, b + 0.05, '%.0f' % b, ha='center', va='bottom', fontsize=7)
-ax_lst[ 1 ].bar(Nodes, Times, width=0.35, align='edge', color='c', alpha=0.8)
+ax_lst[ 1 ].bar(Nodes, Times, width=0.35, align='center', color='c', alpha=0.8)
 ax_lst[ 1 ].plot(Nodes, [ 1.232 ] * len(Nodes), 'r', c='g', linewidth=4)
 # plt.ylim(1.232, 30000)
 
