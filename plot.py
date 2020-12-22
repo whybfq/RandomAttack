@@ -43,6 +43,7 @@ Iterations = [ 482277173
 # for a, b in zip(Nodes, Loss):
 #     plt.text(a, b + 0.05, '%.0f' % b, ha='center', va='bottom', fontsize=7)
 # plt.bar(Nodes, Loss, width=0.35, align='edge', color='c', alpha=0.8)
+# plt.savefig("2-14Errors.eps", format="eps", dpi=1200)
 # plt.show()
 #
 #
@@ -55,6 +56,7 @@ Iterations = [ 482277173
 # plt.bar(Nodes, Times, width=0.35, align='edge', color='c', alpha=0.8)
 # plt.plot(Nodes, [ 1.232 ] * len(Nodes), 'r', c='g', linewidth=4)
 # # plt.ylim(1.232, 30000)
+# plt.savefig("2-14CrackTime.eps", format="eps", dpi=1200)
 # plt.show()
 #
 #
@@ -65,14 +67,11 @@ Iterations = [ 482277173
 # # for a, b in zip(Nodes, Iterations):
 # #     plt.text(a, b + 0.05, '%.0f' % b, ha='center', va='bottom', fontsize=7)
 # # plt.bar(Nodes, Iterations, width=0.15, align='center', color='c', alpha=0.8)
-#
+# plt.savefig("2-14Iterations.eps", format="eps", dpi=1200)
 # plt.show()
 
 
-
-# plt
-
-
+# plt 2
 pictures = [ 'Error versus nodes', 'Crack time (Decryption Time: 1.232 seconds)',
              'Iterations versus nodes' ]
 fig = plt.figure(num=None, figsize=(26, 12), dpi=80, facecolor='w', edgecolor='k')
@@ -108,4 +107,10 @@ ax_lst[ 2 ].set_ylabel('Iterations')
 #     ax_lst[ 2 ].text(a, b + 0.5, '%.1f' % b, ha='right', va='bottom', fontsize=7)
 # ax_lst[ 2 ].bar(Nodes, Iterations, width=0.15, align='center', color='c', alpha=0.8)
 ax_lst[ 2 ].plot(Nodes, Iterations)
+plt.savefig("test.svg", format="svg")
 plt.show()
+
+# from io import BytesIO
+# f = BytesIO()
+# plt.savefig(f, format="svg")
+
