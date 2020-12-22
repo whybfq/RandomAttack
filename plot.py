@@ -107,7 +107,7 @@ ax_lst[ 2 ].set_ylabel('Iterations')
 #     ax_lst[ 2 ].text(a, b + 0.5, '%.1f' % b, ha='right', va='bottom', fontsize=7)
 # ax_lst[ 2 ].bar(Nodes, Iterations, width=0.15, align='center', color='c', alpha=0.8)
 ax_lst[ 2 ].plot(Nodes, Iterations)
-plt.savefig("test.svg", format="svg")
+plt.savefig("2-14Result.eps", rasterized=True, format="eps", dpi=1200)
 plt.show()
 
 # from io import BytesIO
